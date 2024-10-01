@@ -1,0 +1,32 @@
+@app-header-height: 56px;
+@app-toolbar-z-index: 2;
+@app-content-padding: 10px;
+@import url('../styles/mixins.less');
+
+.app {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	&-toolbar {
+		position: fixed;
+		top: 0;
+		z-index: @app-toolbar-z-index;
+	}
+
+	&-sidenav {
+		--mat-sidenav-container-width: 240px;
+	}
+
+	&-container {
+		margin-top: @app-header-height;
+	}
+
+	&-content {
+		.withCustomScroll();
+		padding: @app-content-padding;
+		height: calc(100vh - @app-header-height - 2 * @app-content-padding);
+	}
+}

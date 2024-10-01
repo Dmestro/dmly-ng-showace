@@ -1,0 +1,14 @@
+<div class="drag-drop-expample">
+	@for (row of data.rows; track row) {
+	<div class="row">
+		@for (col of row.columns; track col) {
+		<div class="col" droppable droppableType="column" (dropped)="onDropItem(col, $event)">
+			@for (item of col.items; track item) {
+			<div class="item" draggable draggableAllowDropTo="column" [draggableData]="item"
+				(draggableElementMoved)="removeItem(col, item)">{{item}}</div>
+			}
+		</div>
+		}
+	</div>
+	}
+</div>

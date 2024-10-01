@@ -1,0 +1,21 @@
+<table>
+	<thead>
+		@for (headerTitle of tableConfig.headerConfig; track headerTitle) {
+		<th>{{headerTitle}}</th>
+		}
+	</thead>
+	<tbody>
+		@for (tableRowData of tableData; track tableRowData) {
+		<tr>
+			@for (tableCellData of tableRowData; track tableCellData){
+			<td>
+				<dmly-dynamic-table-cell [cellData]="tableCellData"
+					[cellConfig]="tableConfig.contentConfig.rowConfig.cellConfigs[$index]"></dmly-dynamic-table-cell>
+			</td>
+			}
+		</tr>
+
+		}
+
+	</tbody>
+</table>

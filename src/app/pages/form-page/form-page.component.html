@@ -1,0 +1,41 @@
+<form #form [formGroup]="formGroup" (ngSubmit)="submit()">
+	<mat-form-field class="form-field">
+		<mat-label>Name</mat-label>
+		<input matInput formControlName="name">
+		@if (formGroup.controls['name'].hasError('required') && formGroup.controls['name'].touched) {
+		<mat-error>Field is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+	<mat-form-field class="form-field">
+		<mat-label>Surname</mat-label>
+		<input matInput formControlName="surname">
+		@if (formGroup.controls['surname'].hasError('required')) {
+		<mat-error>Field is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+	<mat-form-field class="form-field">
+		<mat-label>Email</mat-label>
+		<input matInput formControlName="mail">
+		@if (formGroup.controls['mail'].hasError('pattern')) {
+		<mat-error>Please enter correct email</mat-error>
+		} @else {
+		<mat-hint>{{'example@somemail.com'}}</mat-hint>
+		}
+	</mat-form-field>
+	<mat-form-field class="form-field">
+		<mat-label>Age</mat-label>
+		<input matInput formControlName="age" type="number">
+		@if (formGroup.controls['age'].hasError('min')) {
+		<mat-error>You must be older then {{formGroup.controls['age'].errors?.['min']?.['min']}}</mat-error>
+		} @else {
+		<mat-hint>18+ only</mat-hint>
+		}
+	</mat-form-field>
+
+	<div class="form-actions">
+		<button type="submit" class="form-field" mat-button mat-flat-button [disabled]="formGroup.invalid">
+			Submit
+		</button>
+		<button type="reset" class="form-field" mat-button>Reset</button>
+	</div>
+</form>

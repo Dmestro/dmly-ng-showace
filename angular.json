@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "dmly",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -32,7 +32,8 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles/global.less"
             ],
             "scripts": []
           },
@@ -91,12 +92,16 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles/global.less"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
