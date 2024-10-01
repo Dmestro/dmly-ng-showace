@@ -14,11 +14,7 @@ export class DragDropPageComponent {
 
   }
   onDropItem(col: { items: number[]; }, target: any) {
-
-    console.log('🚀 ~ file: drag-drop-page.component.ts:14 ~ DragDropPageComponent ~ onDropItem ~ $event:', col, target);
     col.items.push(target)
-
-
   }
   public data = {
     rows: [
